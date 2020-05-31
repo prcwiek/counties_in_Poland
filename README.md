@@ -1,4 +1,4 @@
-# Display borders of counties in Poland in Shiny with Leaflet map.
+# Borders of counties in Poland in Shiny with Leaflet map
 
 ### Data sources
 The shape file with the borders of counties in Poland is availabe on the web page of [GUGiK - Head Office of Geodesy and Cartography](http://www.gugik.gov.pl/pzgik/dane-bez-oplat/dane-z-panstwowego-rejestru-granic-i-powierzchni-jednostek-podzialow-terytorialnych-kraju-prg).
