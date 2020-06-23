@@ -10,8 +10,8 @@ kod_je,county
 2002,białostocki
 0601,bialski
 2061,Białystok
-2003,bielski
-2402,bielski
+2003,bielski (podlaski)
+2402,bielski (śląski)
 2461,Bielsko-Biała
 2414,bieruńsko-lędziński
 1801,bieszczadzki
@@ -20,8 +20,8 @@ kod_je,county
 0201,bolesławiecki
 2802,braniewski
 0402,brodnicki
-1202,brzeski
-1601,brzeski
+1202,brzeski (małopolski)
+1601,brzeski (opolski)
 1021,brzeziński
 1802,brzozowski
 2601,buski
@@ -72,8 +72,8 @@ kod_je,county
 1404,gostyniński
 3004,gostyński
 2004,grajewski
-1405,grodziski
-3005,grodziski
+1405,grodziski (mazowiecki)
+3005,grodziski (wielkopolski)
 1406,grójecki
 0462,Grudziądz
 0406,grudziądzki
@@ -125,8 +125,8 @@ kod_je,county
 1605,krapkowicki
 0607,kraśnicki
 0606,krasnostawski
-0802,krośnieński
-1807,krośnieński
+0802,krośnieński (odrzański)
+1807,krośnieński (podkarpacki)
 1861,Krosno
 3012,krotoszyński
 1002,kutnowski
@@ -184,8 +184,8 @@ kod_je,county
 1606,namysłowski
 2811,nidzicki
 1812,niżański
-1414,nowodworski
-2210,nowodworski
+1414,nowodworski (gdański)
+2210,nowodworski (mazowiecki)
 2812,nowomiejski
 1210,nowosądecki
 0804,nowosolski
@@ -204,14 +204,14 @@ kod_je,county
 2606,opatowski
 1007,opoczyński
 1661,Opole
-0612,opolski
-1609,opolski
+0612,opolski (lubelski)
+1609,opolski (śląski)
 2815,ostródzki
 1415,ostrołęcki
 1461,Ostrołęka
 2607,ostrowiecki
-1416,ostrowski
-3017,ostrowski
+1416,ostrowski (mazowiecki)
+3017,ostrowski (wielkopolski)
 3018,ostrzeszowski
 1213,oświęcimski
 1417,otwocki
@@ -286,8 +286,8 @@ kod_je,county
 2011,sokólski
 2264,Sopot
 2475,Sosnowiec
-0218,średzki
-3025,średzki
+0218,średzki (śląski)
+3025,średzki (wielkopolski)
 3026,śremski
 1818,stalowowolski
 2611,starachowicki
@@ -302,8 +302,8 @@ kod_je,county
 1215,suski
 2063,Suwałki
 2012,suwalski
-0219,świdnicki
-0617,świdnicki
+0219,świdnicki (lubelski)
+0617,świdnicki (śląski)
 3216,świdwiński
 0808,świebodziński
 0414,świecki
@@ -322,8 +322,8 @@ kod_je,county
 1216,tarnowski
 1217,tatrzański
 2214,tczewski
-0618,tomaszowski
-1016,tomaszowski
+0618,tomaszowski (lubelski)
+1016,tomaszowski (mazowiecki)
 0463,Toruń
 0415,toruński
 0220,trzebnicki
