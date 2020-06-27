@@ -56,7 +56,8 @@ server <- function(input, output, session) {
         pow <- countyshp[countyshp$JPT_KOD_JE == jpt_code_je,]
         
         # transform to geographical coordinates -----------------------------------
-        pow <- spTransform(pow, CRS("+proj=longlat +datum=WGS84 +no_defs"))
+        #pow <- spTransform(pow, CRS("+proj=longlat +datum=WGS84 +no_defs"))
+        pow <- spTransform(pow, CRS("+init=epsg:4326"))
         
         list(countyshp = pow, lng = coordinates(pow)[1], lat = coordinates(pow)[2])   
 
