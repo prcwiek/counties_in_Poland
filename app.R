@@ -65,11 +65,13 @@ server <- function(input, output, session) {
             return(NULL)
         } else county_borders <- points()
         
+        
         tmap_mode("view")
         tm <- tm_shape(county_borders, name = "County borders") + 
             tm_borders(lwd = 2) +
-            tmap_options(basemaps = c("OpenStreetMap", "Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
-        
+            tmap_options(basemaps = c("OpenStreetMap", "Esri.WorldTopoMap", "Esri.WorldGrayCanvas")) +
+            tm_markers(popup.vars = FALSE, text = c("JPT_NAZWA_"), text.size = 1.5)
+
         tmap_leaflet(tm)
     })
     
