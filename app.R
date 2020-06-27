@@ -1,12 +1,13 @@
 library(leaflet)
-library(rgdal)
+library(sf)
 library(shiny)
-library(tidyverse)
+library(tmap)
+
 
 # Powiaty w Polsce / Counties in Poland -----------------------------------
 # https://gis-support.pl/granice-administracyjne/
 
-countyshp <- readOGR("data/powiaty_pl/Powiaty.shp")
+countyshp <- st_read("data/powiaty_pl/Powiaty.shp")
 
 
 # Kody TERYT powiatów / TERTYT codes of counties --------------------------
@@ -16,7 +17,6 @@ counties <- read.table(file = "data/TERC_filtered_20200530.csv",
                        header = TRUE,
                        colClasses = c("character", "character"),
                        sep = ",")
-
 ui <- fluidPage(
     
     titlePanel("County map viewer"),
@@ -43,12 +43,11 @@ ui <- fluidPage(
     )
 )
 
-# Define server logic required to draw a histogram
 server <- function(input, output, session) {
     
-    point <- eventReactive(input$showcounty, {
+    points <- eventReactive(input$showcounty, {
         
-
+        
         # find a code for a selected county ---------------------------------------
         jpt_code_je <- counties$kod_je[which(counties$county == input$county)]
         
@@ -57,24 +56,21 @@ server <- function(input, output, session) {
         
         # transform to geographical coordinates -----------------------------------
         #pow <- spTransform(pow, CRS("+proj=longlat +datum=WGS84 +no_defs"))
-        pow <- spTransform(pow, CRS("+init=epsg:4326"))
-        
-        list(countyshp = pow, lng = coordinates(pow)[1], lat = coordinates(pow)[2])   
-
+        st_transform(pow, 4326)
     }, ignoreNULL = FALSE)
     
     output$view_map <- renderLeaflet({
         
-        if(is.null(point())){
+        if(is.null(points())){
             return(NULL)
-        } else point_location <- point()
+        } else county_borders <- points()
         
-        leaflet() %>% 
-            setView(lng = point_location$lng, lat = point_location$lat, zoom = 10) %>% 
-            addPolygons(data = point_location[[1]], color = "black", weight = 3, opacity = 0.5, fill = FALSE) %>% 
-            addMarkers(data = point_location[[1]], lng = point_location$lng, lat = point_location$lat) %>% 
-            addProviderTiles(providers$OpenStreetMap)
-    
+        tmap_mode("view")
+        tm <- tm_shape(county_borders, name = "County borders") + 
+            tm_borders(lwd = 2) +
+            tmap_options(basemaps = c("OpenStreetMap", "Esri.WorldTopoMap", "Esri.WorldGrayCanvas"))
+        
+        tmap_leaflet(tm)
     })
     
     # End application after closing a window or tab ---------------------------
